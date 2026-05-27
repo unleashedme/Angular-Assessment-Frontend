@@ -1,0 +1,45 @@
+<div class="dashboard-container">
+  <header>
+    <h2>General User Dashboard</h2>
+    <p>Current Role: <strong>{{ userRole }}</strong></p>
+    <button (click)="logOut()" class="primary-btn">
+        Logout
+        <span style="display: inline-flex; align-items: center; justify-content: center; width: 16px; height: 16px; background-color: var(--brand-accent); border-radius: 50%; margin-left: 4px;">
+            <svg style="width: 10px; height: 10px; color: white;" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
+        </span>
+    </button>
+  </header>
+
+  <div *ngIf="isLoading" class="skeleton-container">
+    <div class="skeleton-row header"></div>
+    <div class="skeleton-row" style="width: 100%;"></div>
+    <div class="skeleton-row" style="width: 85%;"></div>
+    <div class="skeleton-row" style="width: 95%;"></div>
+  </div>
+
+
+  <div *ngIf="!isLoading" class="animate-fade-in">
+    <table border="1" cellPadding="10" style="margin-top: 20px; width: 100%; text-align: left; border-collapse: collapse;">
+      <thead style="background-color: #ecf0f1;">
+        <tr>
+          <th>User Id</th>
+          <th>Full Name</th>
+          <th>Email</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let record of records">
+          <td>{{ record.userId }}</td>
+          <td>{{ record.fullName }}</td>
+          <td>{{ record.email }}</td>
+        </tr>
+
+        <tr *ngIf="records.length === 0">
+          <td colspan="3" style="text-align: center; padding: 40px; color: var(--text-muted);">
+            No records found.
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>  
