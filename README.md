@@ -1,27 +1,45 @@
-# AngularAssessmentFrontend
+# Frontend Application (Angular)
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 12.2.18.
+This repository contains the frontend Single Page Application (SPA) developed as part of the Software Engineer Intern evaluation for NSQTech Private Limited. 
 
-## Development server
+The application is built with **Angular** and focuses on a clean, modular architecture, responsive UI design, and secure role-based access control.
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+## Key Features
+* **Role-Based Authentication:** Secure login routing for `General User` and `Admin` roles using JWT validation.
+* **Route Protection:** Angular `AuthGuard` implementation to prevent unauthorized URL access.
+* **Asynchronous Data Handling:** Engineered with artificial API delays utilizing Skeleton Loaders to demonstrate non-blocking UI rendering and async processing on dashboard load.
+* **General User Dashboard:** Displays contextual user identity data and a responsive data grid fetching user-specific records.
+* **Admin Dashboard:** A dedicated management interface featuring real-time client-side filtering and full user ledger access.
+* **Modular Architecture:** Core logic separated into isolated modules (`Auth`, `GeneralUser`, `Admin`) with a centralized `UserService` for API interactions.
+* **Custom UI/UX:** Built without relying on heavy CSS frameworks to demonstrate raw UI design capability, featuring a custom dark-mode "Aura Secure" aesthetic.
 
-## Code scaffolding
+## Technology Stack
+* **Framework:** Angular 12+
+* **Language:** TypeScript
+* **State & Async Handling:** RxJS (Observables)
+* **Styling:** Custom CSS3 (CSS Variables, Flexbox, CSS Grid)
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+## Setup & Installation
 
-## Build
+### Prerequisites
+* Node.js (v20 LTS recommended)
+* Angular CLI (`npm install -g @angular/cli`)
+* The [Backend API](<https://github.com/unleashedme/Angular-Assessment-Backend/tree/main>) must be running on `http://localhost:3000`.
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
-
-## Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+### Installation Steps
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/unleashedme/Angular-Assessment-Frontend.git
+   cd Angular-Assessment-Frontend
+   ```
+2. Install dependencies
+   ```bash
+   npm install
+   ```
+3. Start the development server
+   ```bash
+   npm start
+   ```
+   Note: The `npm start` script is configured with `--openssl-legacy-provider` to ensure compatibility with modern Node environments.
+   
+5. Open your browser and navigate to `http://localhost:4200`
